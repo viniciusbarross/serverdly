@@ -25,7 +25,7 @@ const UserSchemma = new mongoose.Schema({
 
 UserSchemma.pre('save', async function(next){
     const hash = await bcrypt.hash(this.password,10);
-    this.password = hast;
+    this.password = hash;
     next();
 });
 
